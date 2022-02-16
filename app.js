@@ -35,20 +35,17 @@ console.log(sum / names.length);
 
 //2b. Use a loop to iterate through the array again and concatenate all the names together, separated by spaces, and print the result to the console.
 
-let total = '';
-for (let i = 0; i < names.length; i++) {
-    total = names.concat(names[i]);
+let total = names[0];
+for (let i = 1; i < names.length; i++) {
+    total = total.concat(" ",names[i]);
 }
 console.log(total);
 
-
-console.log(names.join(' '));
-
 //3. How do you access the last element of any array?
-// You can access the last element of any array by either using the element position/array length, for example if cars = ['Toyota', 'Honda', 'Pontiac'] then if you wanted to find 'Pontiac' then the position would be cars[2] or you can use array.length[-1], which starts the count at the end of the array, which will print that last element in the array.
+// You can access the last element of any array by either using the element position/array length, for example if cars = ['Toyota', 'Honda', 'Pontiac'] then if you wanted to find 'Pontiac' then the position would be cars[2] or you can use array.length[-1], which starts the count at the end of the array, which will print that last element in the array. Syntax: console.log(array[-1]);
 
 //4. How do you access the first element of any array?
-// You can access the first element of any array by using array[0]. An array count starts at 0, so the first element of an array will always be 0. So if you pinput 0, whatever element is first it what 0 will represent.
+// You can access the first element of any array by using array[0]. An array count starts at 0, so the first element of an array will always be 0. So if you pinput 0, whatever element is first it what 0 will represent. Syntax: console.log(array[0]);
 
 //5. Create a new array called nameLengths. Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.For example:
 //namesArray = ["Kelly", "Sam", "Kate"] //given this array
@@ -69,24 +66,24 @@ console.log(sum);
 
 //7. Write a function that takes two parameters, word and n, as arguments and returns the word concatenated to itself n number of times. (i.e. if I pass in ‘Hello’ and 3, I would expect the function to return ‘HelloHelloHello’).
 
-function concat(word, n) {
-    var concat = word;
-    for (let i = 1; i <= n; i++) {
-        concat = concat.concat(word);
-    } return concat;
+function concat_n_times(word, n) {
+    var con= word;
+    for(i=1; i<=n; i++) {
+        con = con.concat(word);
+    }
+    return con;
 }
-console.log(concat);
 
 //8. Write a function that takes two parameters, firstName and lastName, and returns a full name (the full name should be the first and the last name separated by a space).
 
-function fullName(firstName, lastName) {
-    return firstName.concat(' ', lastName);
+function fullName(firstName, lastName){
+    return firstName + " " + lastName;
 }
-console.log(fullName);
+// Then you can print it using: ex. console.log(fullName('Hello', 'World'));
 
 //9. Write a function that takes an array of numbers and returns true if the sum of all the numbers in the array is greater than 100.
 
-function oneHundred(array) {
+function numbers(array) {
     sum = 0;
     for (var i = 0; i < array.length; i++) {
         sum += array[i];
@@ -126,3 +123,16 @@ function willBuyDrink(isHotOutside, moneyInPocket) {
     }
 } 
 
+//13. My own function! I love to travel, so I am going to create a function called vacation that calculates if I am going on vacation based on planeTicket and pTO. If the planeTicket is less than 500 AND I have more than 14 days of pTO. I created this because my travels do actually get pased off ticket price and if I have pto, so I felt like this was the perfect funciton to create.
+
+function vacation(planeTicket, pTO) {
+    if (planeTicket < 500 && pTO > 14) {
+        return 'Book the ticket!';
+    } else {
+        return 'The only place you are going is to work.';
+    }
+}
+//ex. Just to test it.
+var planeTicket = 800;
+var pTO = 2;
+console.log(vacation(planeTicket, pTO));
